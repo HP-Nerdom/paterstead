@@ -5,6 +5,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mushrooms — Paterstead Reference</title>
   <link rel="stylesheet" href="style.css">
+  <style>
+    /* Side nav */
+    .page-nav { position: fixed; top: 80px; right: 0; z-index: 100; display: flex; flex-direction: column; align-items: flex-end; }
+    .page-nav-toggle { background: var(--moss); color: var(--cream); border: none; border-radius: 6px 0 0 6px; padding: 8px 12px; font-family: inherit; font-size: 0.8rem; font-weight: 600; cursor: pointer; letter-spacing: 0.04em; text-transform: uppercase; display: flex; align-items: center; gap: 6px; white-space: nowrap; transition: background 0.2s; box-shadow: -2px 2px 6px rgba(0,0,0,0.15); }
+    .page-nav-toggle:hover { background: var(--bark); }
+    .page-nav-toggle .arrow { display: inline-block; transition: transform 0.25s; font-style: normal; }
+    .page-nav.open .page-nav-toggle .arrow { transform: rotate(180deg); }
+    .page-nav-list { background: var(--cream); border: 1px solid var(--tan); border-right: none; border-radius: 6px 0 0 6px; padding: 10px 0; min-width: 210px; max-height: calc(100vh - 120px); overflow-y: auto; box-shadow: -3px 3px 10px rgba(0,0,0,0.12); display: none; margin-top: 4px; }
+    .page-nav.open .page-nav-list { display: block; }
+    .page-nav-list a { display: block; padding: 7px 18px; font-family: inherit; font-size: 0.82rem; color: var(--bark); text-decoration: none; line-height: 1.35; transition: background 0.15s, color 0.15s; border-left: 3px solid transparent; }
+    .page-nav-list a:hover { background: #ede6d6; border-left-color: var(--moss); color: var(--bark); }
+    .page-nav-list .nav-category { display: block; padding: 8px 18px 3px; font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--tan); margin-top: 4px; }
+    @media (max-width: 640px) { .page-nav { top: 56px; } .page-nav-list { min-width: 180px; } }
+    /* Section separators */
+    .section + .section { border-top: 2px solid var(--wheat); padding-top: 2.5rem; margin-top: 1rem; }
+    /* Step photos */
+    .step-photos { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 1.25rem 0 0.5rem; }
+    .step-photos img { width: 135px; height: auto; border-radius: 4px; border: 1px solid var(--tan); object-fit: cover; display: block; }
+    .step-photos-label { font-size: 0.75rem; color: var(--tan); font-style: italic; margin: -0.25rem 0 1rem; letter-spacing: 0.01em; }
+  </style>
 </head>
 <body>
 
@@ -31,6 +51,19 @@
   </div>
 </nav>
 
+  <nav class="page-nav" id="pageNav" aria-label="Page sections">
+    <button class="page-nav-toggle" id="pageNavToggle" aria-expanded="false" aria-controls="pageNavList">
+      <i class="arrow">◀</i> On This Page
+    </button>
+    <div class="page-nav-list" id="pageNavList" role="list">
+          <a href="#how-mushrooms-grow">How Mushrooms Grow</a>
+          <a href="#wine-cap-mushrooms-garden-giant">Wine Cap Mushrooms (Garden Giant)</a>
+          <a href="#oyster-mushrooms-in-buckets">Oyster Mushrooms in Buckets</a>
+          <a href="#shiitake-on-logs">Shiitake on Logs</a>
+          <a href="#outdoor-bed-growing-general-notes">Outdoor Bed Growing — General Notes</a>
+    </div>
+  </nav>
+
 <header class="page-hero">
   <p class="eyebrow">Growing</p>
   <h1>Mushroom Cultivation</h1>
@@ -44,7 +77,15 @@
   <!-- ============================================================ -->
   <div class="section">
     <p class="section-label">The Basics</p>
-    <h2>How Mushrooms Grow</h2>
+    <h2 id="how-mushrooms-grow">How Mushrooms Grow</h2>
+
+        <div class="step-photos">
+          <img src="images/mushroom-milkwood-001.jpg" alt="" loading="lazy">
+          <img src="images/mushroom-milkwood-006.jpg" alt="" loading="lazy">
+          <img src="images/mushroom-milkwood-004.jpg" alt="" loading="lazy">
+        </div>
+        <p class="step-photos-label">Reference photos from Milkwood Permaculture</p>
+
     <p>Mushrooms are the fruit of a fungus — just like an apple is the fruit of a tree. The main body of the fungus is called <strong>mycelium</strong>, a network of tiny filaments that lives in and on a food source called <strong>substrate</strong>. Give the mycelium what it needs and it produces mushrooms.</p>
 
     <h3>The Basic Sequence</h3>
@@ -68,7 +109,7 @@
   <!-- ============================================================ -->
   <div class="section">
     <p class="section-label">Method 1 · Outdoor Bed · Beginner</p>
-    <h2>Wine Cap Mushrooms (Garden Giant)</h2>
+    <h2 id="wine-cap-mushrooms-garden-giant">Wine Cap Mushrooms (Garden Giant)</h2>
 
     <p>Also called king stropharia or garden giants, wine caps are one of the easiest outdoor mushrooms to grow. They thrive on wood chips or straw, tolerate more sun than most mushrooms, help enrich soil, and can grow as big as plates. Firm texture with a mild asparagus-like flavor.</p>
 
@@ -128,6 +169,16 @@
       Other mushrooms can sprout in your bed. Confirm identification using multiple sources before consuming anything.
     </div>
 
+        <div class="step-photos">
+          <img src="images/mushroom-winecap-002.jpg" alt="" loading="lazy">
+          <img src="images/mushroom-winecap-003.jpg" alt="" loading="lazy">
+          <img src="images/mushroom-winecap-004.jpg" alt="" loading="lazy">
+          <img src="images/mushroom-winecap-005.jpg" alt="" loading="lazy">
+          <img src="images/mushroom-winecap-006.jpg" alt="" loading="lazy">
+          <img src="images/mushroom-winecap-012.jpg" alt="" loading="lazy">
+        </div>
+        <p class="step-photos-label">Wine cap photos from the Wine Cap Growing Guide</p>
+
     <h3>Step 6 — Bed Rejuvenation</h3>
     <p>When production slows, try feeding the bed. Add several inches of fresh wood chips to the top, ideally in spring or right after a harvest. If the mycelium is still vigorous, it will colonize the new material and fruit again in a few months. Adding a little new spawn to the fresh material greatly improves success rates. Straw beds typically don't rejuvenate — just start a new one.</p>
 
@@ -142,7 +193,16 @@
   <!-- ============================================================ -->
   <div class="section">
     <p class="section-label">Method 2 · Buckets · Beginner · Indoor</p>
-    <h2>Oyster Mushrooms in Buckets</h2>
+    <h2 id="oyster-mushrooms-in-buckets">Oyster Mushrooms in Buckets</h2>
+
+        <div class="step-photos">
+          <img src="images/mushroom-milkwood-007.jpg" alt="" loading="lazy">
+          <img src="images/mushroom-milkwood-009.jpg" alt="" loading="lazy">
+          <img src="images/mushroom-milkwood-010.jpg" alt="" loading="lazy">
+          <img src="images/mushroom-milkwood-012.jpg" alt="" loading="lazy">
+        </div>
+        <p class="step-photos-label">Oyster mushroom photos from Milkwood Permaculture</p>
+
 
     <p>The most beginner-friendly indoor method. Works year-round in any space — including apartments. Pink oyster, blue, golden, black king, king trumpet, and snow oyster all work with this method.</p>
 
@@ -178,7 +238,16 @@
   <!-- ============================================================ -->
   <div class="section">
     <p class="section-label">Method 3 · Logs · Intermediate · Long Term</p>
-    <h2>Shiitake on Logs</h2>
+    <h2 id="shiitake-on-logs">Shiitake on Logs</h2>
+
+        <div class="step-photos">
+          <img src="images/mushroom-milkwood-014.jpg" alt="" loading="lazy">
+          <img src="images/mushroom-milkwood-015.jpg" alt="" loading="lazy">
+          <img src="images/mushroom-milkwood-016.jpg" alt="" loading="lazy">
+          <img src="images/mushroom-milkwood-019.jpg" alt="" loading="lazy">
+        </div>
+        <p class="step-photos-label">Shiitake log photos from Milkwood Permaculture</p>
+
 
     <p>Slow but worth it. With some upfront work, in 18 months to 2 years you'll have the best shiitake you've ever eaten — and logs will produce every year for up to 5 years.</p>
 
@@ -215,7 +284,17 @@
   <!-- ============================================================ -->
   <div class="section">
     <p class="section-label">Method 4 · Outdoor Beds · General Reference</p>
-    <h2>Outdoor Bed Growing — General Notes</h2>
+    <h2 id="outdoor-bed-growing-general-notes">Outdoor Bed Growing — General Notes</h2>
+
+        <div class="step-photos">
+          <img src="images/mushroom-milkwood-020.jpg" alt="" loading="lazy">
+          <img src="images/mushroom-milkwood-021.jpg" alt="" loading="lazy">
+          <img src="images/mushroom-milkwood-022.jpg" alt="" loading="lazy">
+          <img src="images/mushroom-milkwood-023.jpg" alt="" loading="lazy">
+          <img src="images/mushroom-milkwood-024.jpg" alt="" loading="lazy">
+        </div>
+        <p class="step-photos-label">Outdoor bed growing photos from Milkwood Permaculture</p>
+
 
     <h3>Spawn Types</h3>
     <p>Grain spawn colonizes fast and boosts nitrogen in carbon-heavy substrates. Sawdust spawn is better when pest pressure is high (grain attracts pests). One bag of spawn inoculates roughly a 4'×4' space (16 sq ft). Only open spawn when ready to use — premature opening increases mold risk.</p>
@@ -257,5 +336,19 @@
   <p>Paterstead Reference — personal project notes</p>
 </footer>
 
+  <script>
+    const nav = document.getElementById('pageNav');
+    const toggle = document.getElementById('pageNavToggle');
+    toggle.addEventListener('click', () => {
+      const isOpen = nav.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', isOpen);
+    });
+    document.querySelectorAll('.page-nav-list a').forEach(link => {
+      link.addEventListener('click', () => {
+        nav.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+  </script>
 </body>
 </html>

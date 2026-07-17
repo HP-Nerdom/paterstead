@@ -5,6 +5,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Hard Cider — Paterstead Reference</title>
   <link rel="stylesheet" href="style.css">
+  <style>
+    /* Side nav */
+    .page-nav { position: fixed; top: 80px; right: 0; z-index: 100; display: flex; flex-direction: column; align-items: flex-end; }
+    .page-nav-toggle { background: var(--moss); color: var(--cream); border: none; border-radius: 6px 0 0 6px; padding: 8px 12px; font-family: inherit; font-size: 0.8rem; font-weight: 600; cursor: pointer; letter-spacing: 0.04em; text-transform: uppercase; display: flex; align-items: center; gap: 6px; white-space: nowrap; transition: background 0.2s; box-shadow: -2px 2px 6px rgba(0,0,0,0.15); }
+    .page-nav-toggle:hover { background: var(--bark); }
+    .page-nav-toggle .arrow { display: inline-block; transition: transform 0.25s; font-style: normal; }
+    .page-nav.open .page-nav-toggle .arrow { transform: rotate(180deg); }
+    .page-nav-list { background: var(--cream); border: 1px solid var(--tan); border-right: none; border-radius: 6px 0 0 6px; padding: 10px 0; min-width: 210px; max-height: calc(100vh - 120px); overflow-y: auto; box-shadow: -3px 3px 10px rgba(0,0,0,0.12); display: none; margin-top: 4px; }
+    .page-nav.open .page-nav-list { display: block; }
+    .page-nav-list a { display: block; padding: 7px 18px; font-family: inherit; font-size: 0.82rem; color: var(--bark); text-decoration: none; line-height: 1.35; transition: background 0.15s, color 0.15s; border-left: 3px solid transparent; }
+    .page-nav-list a:hover { background: #ede6d6; border-left-color: var(--moss); color: var(--bark); }
+    .page-nav-list .nav-category { display: block; padding: 8px 18px 3px; font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--tan); margin-top: 4px; }
+    @media (max-width: 640px) { .page-nav { top: 56px; } .page-nav-list { min-width: 180px; } }
+    /* Section separators */
+    .section + .section { border-top: 2px solid var(--wheat); padding-top: 2.5rem; margin-top: 1rem; }
+    /* Step photos */
+    .step-photos { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 1.25rem 0 0.5rem; }
+    .step-photos img { width: 135px; height: auto; border-radius: 4px; border: 1px solid var(--tan); object-fit: cover; display: block; }
+    .step-photos-label { font-size: 0.75rem; color: var(--tan); font-style: italic; margin: -0.25rem 0 1rem; letter-spacing: 0.01em; }
+  </style>
 </head>
 <body>
 
@@ -31,6 +51,23 @@
   </div>
 </nav>
 
+  <nav class="page-nav" id="pageNav" aria-label="Page sections">
+    <button class="page-nav-toggle" id="pageNavToggle" aria-expanded="false" aria-controls="pageNavList">
+      <i class="arrow">◀</i> On This Page
+    </button>
+    <div class="page-nav-list" id="pageNavList" role="list">
+          <a href="#what-youre-getting-into">What You're Getting Into</a>
+          <a href="#equipment-list">Equipment List</a>
+          <a href="#clean-and-sterile">Clean and Sterile</a>
+          <a href="#choosing-your-apple-juice">Choosing Your Apple Juice</a>
+          <a href="#yeast-selection">Yeast Selection</a>
+          <a href="#making-one-gallon-step-by-step">Making One Gallon — Step by Step</a>
+          <a href="#racking-moving-to-a-clean-jug">Racking (Moving to a Clean Jug)</a>
+          <a href="#carbonation-and-bottling">Carbonation and Bottling</a>
+          <a href="#timeline-and-troubleshooting">Timeline and Troubleshooting</a>
+    </div>
+  </nav>
+
 <header class="page-hero">
   <p class="eyebrow">Fermentation</p>
   <h1>Homemade Hard Cider</h1>
@@ -44,7 +81,7 @@
   <!-- ============================================================ -->
   <div class="section">
     <p class="section-label">Overview</p>
-    <h2>What You're Getting Into</h2>
+    <h2 id="what-youre-getting-into">What You're Getting Into</h2>
 
     <p>This guide is for making one gallon of hard cider — roughly 7–8 sixteen-ounce bottles. It's a great starting size because mistakes are small and cheap. The recipe is expandable once you've got the process down.</p>
 
@@ -73,7 +110,7 @@
   <!-- ============================================================ -->
   <div class="section">
     <p class="section-label">Setup</p>
-    <h2>Equipment List</h2>
+    <h2 id="equipment-list">Equipment List</h2>
 
     <div class="materials-box">
       <h4>Essential (for 1 gallon)</h4>
@@ -118,7 +155,7 @@
   <!-- ============================================================ -->
   <div class="section">
     <p class="section-label">Critical First Step</p>
-    <h2>Clean &amp; Sterile</h2>
+    <h2 id="clean-and-sterile">Clean &amp; Sterile</h2>
 
     <p>The biggest mistake first-time brewers make is skipping or rushing sanitation. Contamination turns your cider to vinegar. Everything that touches your juice — jugs, tubing, stoppers, spoons, funnels, your hands — must be cleaned and then sanitized.</p>
 
@@ -149,7 +186,7 @@
   <!-- ============================================================ -->
   <div class="section">
     <p class="section-label">Ingredients</p>
-    <h2>Choosing Your Apple Juice</h2>
+    <h2 id="choosing-your-apple-juice">Choosing Your Apple Juice</h2>
 
     <p>The juice is the foundation of the flavor. You have three options:</p>
 
@@ -178,7 +215,7 @@
   <!-- ============================================================ -->
   <div class="section">
     <p class="section-label">Ingredients</p>
-    <h2>Yeast Selection</h2>
+    <h2 id="yeast-selection">Yeast Selection</h2>
 
     <p>Use brewing yeast, not bread yeast. Bread yeast is a completely different strain optimized for making dough rise, not for producing clean-tasting alcohol. One 5g packet of brewing yeast is enough for 5 gallons — use about 1/5 of the packet per gallon.</p>
 
@@ -221,7 +258,7 @@
   <!-- ============================================================ -->
   <div class="section">
     <p class="section-label">Process</p>
-    <h2>Making One Gallon — Step by Step</h2>
+    <h2 id="making-one-gallon-step-by-step">Making One Gallon — Step by Step</h2>
 
     <ol class="steps">
       <li>
@@ -269,7 +306,7 @@
   <!-- ============================================================ -->
   <div class="section">
     <p class="section-label">Secondary Fermentation</p>
-    <h2>Racking (Moving to a Clean Jug)</h2>
+    <h2 id="racking-moving-to-a-clean-jug">Racking (Moving to a Clean Jug)</h2>
 
     <p>After primary fermentation slows (about 2 weeks), you'll see sediment at the bottom called "lees" — dead yeast and fruit solids. Left in contact with the cider, lees add bitter off-flavors. Racking moves the clear cider off the lees into a clean jug.</p>
 
@@ -303,7 +340,7 @@
   <!-- ============================================================ -->
   <div class="section">
     <p class="section-label">Bottling</p>
-    <h2>Carbonation &amp; Bottling</h2>
+    <h2 id="carbonation-and-bottling">Carbonation &amp; Bottling</h2>
 
     <p>You have three choices: still (flat), back-carbonated (fizzy, controlled), or naturally carbonated by catching the fermentation just before it finishes.</p>
 
@@ -351,7 +388,7 @@
   <!-- ============================================================ -->
   <div class="section">
     <p class="section-label">Quick Reference</p>
-    <h2>Timeline &amp; Troubleshooting</h2>
+    <h2 id="timeline-and-troubleshooting">Timeline &amp; Troubleshooting</h2>
 
     <table class="data-table">
       <thead><tr><th>Stage</th><th>Timing</th><th>What to Watch For</th></tr></thead>
@@ -386,5 +423,19 @@
   <p>Paterstead Reference — personal project notes</p>
 </footer>
 
+  <script>
+    const nav = document.getElementById('pageNav');
+    const toggle = document.getElementById('pageNavToggle');
+    toggle.addEventListener('click', () => {
+      const isOpen = nav.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', isOpen);
+    });
+    document.querySelectorAll('.page-nav-list a').forEach(link => {
+      link.addEventListener('click', () => {
+        nav.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+  </script>
 </body>
 </html>

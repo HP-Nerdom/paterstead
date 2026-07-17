@@ -5,6 +5,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Rabbits — Paterstead Reference</title>
   <link rel="stylesheet" href="style.css">
+  <style>
+    /* Side nav */
+    .page-nav { position: fixed; top: 80px; right: 0; z-index: 100; display: flex; flex-direction: column; align-items: flex-end; }
+    .page-nav-toggle { background: var(--moss); color: var(--cream); border: none; border-radius: 6px 0 0 6px; padding: 8px 12px; font-family: inherit; font-size: 0.8rem; font-weight: 600; cursor: pointer; letter-spacing: 0.04em; text-transform: uppercase; display: flex; align-items: center; gap: 6px; white-space: nowrap; transition: background 0.2s; box-shadow: -2px 2px 6px rgba(0,0,0,0.15); }
+    .page-nav-toggle:hover { background: var(--bark); }
+    .page-nav-toggle .arrow { display: inline-block; transition: transform 0.25s; font-style: normal; }
+    .page-nav.open .page-nav-toggle .arrow { transform: rotate(180deg); }
+    .page-nav-list { background: var(--cream); border: 1px solid var(--tan); border-right: none; border-radius: 6px 0 0 6px; padding: 10px 0; min-width: 210px; max-height: calc(100vh - 120px); overflow-y: auto; box-shadow: -3px 3px 10px rgba(0,0,0,0.12); display: none; margin-top: 4px; }
+    .page-nav.open .page-nav-list { display: block; }
+    .page-nav-list a { display: block; padding: 7px 18px; font-family: inherit; font-size: 0.82rem; color: var(--bark); text-decoration: none; line-height: 1.35; transition: background 0.15s, color 0.15s; border-left: 3px solid transparent; }
+    .page-nav-list a:hover { background: #ede6d6; border-left-color: var(--moss); color: var(--bark); }
+    .page-nav-list .nav-category { display: block; padding: 8px 18px 3px; font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--tan); margin-top: 4px; }
+    @media (max-width: 640px) { .page-nav { top: 56px; } .page-nav-list { min-width: 180px; } }
+    /* Section separators */
+    .section + .section { border-top: 2px solid var(--wheat); padding-top: 2.5rem; margin-top: 1rem; }
+    /* Step photos */
+    .step-photos { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 1.25rem 0 0.5rem; }
+    .step-photos img { width: 135px; height: auto; border-radius: 4px; border: 1px solid var(--tan); object-fit: cover; display: block; }
+    .step-photos-label { font-size: 0.75rem; color: var(--tan); font-style: italic; margin: -0.25rem 0 1rem; letter-spacing: 0.01em; }
+  </style>
 </head>
 <body>
 
@@ -31,6 +51,17 @@
   </div>
 </nav>
 
+  <nav class="page-nav" id="pageNav" aria-label="Page sections">
+    <button class="page-nav-toggle" id="pageNavToggle" aria-expanded="false" aria-controls="pageNavList">
+      <i class="arrow">◀</i> On This Page
+    </button>
+    <div class="page-nav-list" id="pageNavList" role="list">
+          <a href="#meat-rabbit-growth-rates">Meat Rabbit Growth Rates</a>
+          <a href="#easy-butchering-method">Easy Butchering Method</a>
+          <a href="#detailed-processing-guide">Detailed Processing Guide</a>
+    </div>
+  </nav>
+
 <header class="page-hero">
   <p class="eyebrow">Livestock</p>
   <h1>Meat Rabbits</h1>
@@ -44,7 +75,7 @@
   <!-- ============================================================ -->
   <div class="section">
     <p class="section-label">Reference</p>
-    <h2>Meat Rabbit Growth Rates</h2>
+    <h2 id="meat-rabbit-growth-rates">Meat Rabbit Growth Rates</h2>
 
     <p>Target weights for commercial breeds (Californians, New Zealands, Champagne d'Argents). Champagnes rival New Zealands in production capability and good bloodlines can reach fryer weight (4.5–5 lb) by 8–10 weeks.</p>
 
@@ -78,7 +109,7 @@
   <!-- ============================================================ -->
   <div class="section">
     <p class="section-label">Processing · Video Reference</p>
-    <h2>Easy Butchering Method</h2>
+    <h2 id="easy-butchering-method">Easy Butchering Method</h2>
 
     <p>This video demonstrates a fast, clean processing approach. Watch it once before your first time — seeing the sequence in motion is much more useful than reading it alone.</p>
 
@@ -136,7 +167,7 @@
   <!-- ============================================================ -->
   <div class="section">
     <p class="section-label">Processing · Full Reference</p>
-    <h2>Detailed Processing Guide</h2>
+    <h2 id="detailed-processing-guide">Detailed Processing Guide</h2>
 
     <div class="materials-box">
       <h4>Supplies Needed</h4>
@@ -176,5 +207,19 @@
   <p>Paterstead Reference — personal project notes</p>
 </footer>
 
+  <script>
+    const nav = document.getElementById('pageNav');
+    const toggle = document.getElementById('pageNavToggle');
+    toggle.addEventListener('click', () => {
+      const isOpen = nav.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', isOpen);
+    });
+    document.querySelectorAll('.page-nav-list a').forEach(link => {
+      link.addEventListener('click', () => {
+        nav.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+  </script>
 </body>
 </html>

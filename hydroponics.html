@@ -5,6 +5,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Hydroponics — Paterstead Reference</title>
   <link rel="stylesheet" href="style.css">
+  <style>
+    /* Side nav */
+    .page-nav { position: fixed; top: 80px; right: 0; z-index: 100; display: flex; flex-direction: column; align-items: flex-end; }
+    .page-nav-toggle { background: var(--moss); color: var(--cream); border: none; border-radius: 6px 0 0 6px; padding: 8px 12px; font-family: inherit; font-size: 0.8rem; font-weight: 600; cursor: pointer; letter-spacing: 0.04em; text-transform: uppercase; display: flex; align-items: center; gap: 6px; white-space: nowrap; transition: background 0.2s; box-shadow: -2px 2px 6px rgba(0,0,0,0.15); }
+    .page-nav-toggle:hover { background: var(--bark); }
+    .page-nav-toggle .arrow { display: inline-block; transition: transform 0.25s; font-style: normal; }
+    .page-nav.open .page-nav-toggle .arrow { transform: rotate(180deg); }
+    .page-nav-list { background: var(--cream); border: 1px solid var(--tan); border-right: none; border-radius: 6px 0 0 6px; padding: 10px 0; min-width: 210px; max-height: calc(100vh - 120px); overflow-y: auto; box-shadow: -3px 3px 10px rgba(0,0,0,0.12); display: none; margin-top: 4px; }
+    .page-nav.open .page-nav-list { display: block; }
+    .page-nav-list a { display: block; padding: 7px 18px; font-family: inherit; font-size: 0.82rem; color: var(--bark); text-decoration: none; line-height: 1.35; transition: background 0.15s, color 0.15s; border-left: 3px solid transparent; }
+    .page-nav-list a:hover { background: #ede6d6; border-left-color: var(--moss); color: var(--bark); }
+    .page-nav-list .nav-category { display: block; padding: 8px 18px 3px; font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--tan); margin-top: 4px; }
+    @media (max-width: 640px) { .page-nav { top: 56px; } .page-nav-list { min-width: 180px; } }
+    /* Section separators */
+    .section + .section { border-top: 2px solid var(--wheat); padding-top: 2.5rem; margin-top: 1rem; }
+    /* Step photos */
+    .step-photos { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 1.25rem 0 0.5rem; }
+    .step-photos img { width: 135px; height: auto; border-radius: 4px; border: 1px solid var(--tan); object-fit: cover; display: block; }
+    .step-photos-label { font-size: 0.75rem; color: var(--tan); font-style: italic; margin: -0.25rem 0 1rem; letter-spacing: 0.01em; }
+  </style>
 </head>
 <body>
 
@@ -31,6 +51,24 @@
   </div>
 </nav>
 
+  <nav class="page-nav" id="pageNav" aria-label="Page sections">
+    <button class="page-nav-toggle" id="pageNavToggle" aria-expanded="false" aria-controls="pageNavList">
+      <i class="arrow">◀</i> On This Page
+    </button>
+    <div class="page-nav-list" id="pageNavList" role="list">
+          <a href="#why-hydroponics">Why Hydroponics</a>
+          <a href="#choosing-a-system">Choosing a System</a>
+          <a href="#containers-pots-and-substrate">Containers, Pots and Substrate</a>
+          <a href="#grow-lights">Grow Lights</a>
+          <a href="#keeping-roots-oxygenated">Keeping Roots Oxygenated</a>
+          <a href="#water-quality-and-fertilizing">Water Quality and Fertilizing</a>
+          <a href="#starting-seeds-and-transplanting">Starting Seeds and Transplanting</a>
+          <a href="#pests-disease-and-sanitation">Pests, Disease and Sanitation</a>
+          <a href="#harvesting">Harvesting</a>
+          <a href="#what-to-grow-and-when">What to Grow and When</a>
+    </div>
+  </nav>
+
 <header class="page-hero">
   <p class="eyebrow">Growing</p>
   <h1>Small-Scale Hydroponics</h1>
@@ -44,7 +82,7 @@
   <!-- ============================================================ -->
   <div class="section">
     <p class="section-label">Overview</p>
-    <h2>Why Hydroponics</h2>
+    <h2 id="why-hydroponics">Why Hydroponics</h2>
 
     <p>Hydroponics is growing plants in water rather than soil. It's space-efficient, uses significantly less water than soil gardening, and produces no weeds. With artificial lighting you can grow year-round — which makes it especially valuable in Zone 6b where outdoor growing seasons are limited.</p>
 
@@ -70,7 +108,7 @@
   <!-- ============================================================ -->
   <div class="section">
     <p class="section-label">System Types</p>
-    <h2>Choosing a System</h2>
+    <h2 id="choosing-a-system">Choosing a System</h2>
 
     <h3>Deep Water Culture (DWC) — Best for Beginners</h3>
     <p>Plants are suspended above a tank of water with roots hanging down into the nutrient solution. This is the simplest, cheapest, and easiest system to maintain and expand. A 5-gallon bucket or plastic storage bin is all you need to start.</p>
@@ -100,7 +138,7 @@
   <!-- ============================================================ -->
   <div class="section">
     <p class="section-label">Setup</p>
-    <h2>Containers, Pots &amp; Substrate</h2>
+    <h2 id="containers-pots-and-substrate">Containers, Pots &amp; Substrate</h2>
 
     <h3>Container</h3>
     <p>Any food-safe container that holds water works — a 5-gallon bucket, a plastic storage tote, or a purpose-built hydroponic bin. Size should match the mature plant size (check the seed packet). Use a lid or a sheet of extruded polystyrene (foam insulation board) to support net pots over the water. If floating polystyrene directly on the water, add PVC tubes underneath for support as plants get heavier.</p>
@@ -155,7 +193,7 @@
   <!-- ============================================================ -->
   <div class="section">
     <p class="section-label">Lighting</p>
-    <h2>Grow Lights</h2>
+    <h2 id="grow-lights">Grow Lights</h2>
 
     <p>Outdoors in summer, natural sunlight is all you need. For indoor growing, supplemental lighting is almost always necessary — even a south-facing window usually isn't enough in winter in Zone 6b.</p>
 
@@ -202,7 +240,7 @@
   <!-- ============================================================ -->
   <div class="section">
     <p class="section-label">Aeration</p>
-    <h2>Keeping Roots Oxygenated</h2>
+    <h2 id="keeping-roots-oxygenated">Keeping Roots Oxygenated</h2>
 
     <h3>Passive (Kratky Method)</h3>
     <p>The air gap between the water surface and the bottom of the net pot provides oxygen. Keep roots only 1/3 to 1/2 submerged once they develop past the net pot. No pump or airstone needed.</p>
@@ -219,7 +257,7 @@
   <!-- ============================================================ -->
   <div class="section">
     <p class="section-label">Water &amp; Nutrients</p>
-    <h2>Water Quality &amp; Fertilizing</h2>
+    <h2 id="water-quality-and-fertilizing">Water Quality &amp; Fertilizing</h2>
 
     <h3>pH</h3>
     <p>Target pH is 5.4–7.0. Outside this range, plants can't efficiently absorb nutrients even if they're present. Test with pH strips (a 15-foot roll costs ~$7 and lasts years). Test when you first mix your nutrient solution and every few weeks during a crop cycle.</p>
@@ -253,7 +291,7 @@
   <!-- ============================================================ -->
   <div class="section">
     <p class="section-label">Planting</p>
-    <h2>Starting Seeds &amp; Transplanting</h2>
+    <h2 id="starting-seeds-and-transplanting">Starting Seeds &amp; Transplanting</h2>
 
     <p>Start seeds separately and transplant into the hydroponic system after germination — don't direct-sow into net pots.</p>
 
@@ -274,7 +312,7 @@
   <!-- ============================================================ -->
   <div class="section">
     <p class="section-label">Maintenance</p>
-    <h2>Pests, Disease &amp; Sanitation</h2>
+    <h2 id="pests-disease-and-sanitation">Pests, Disease &amp; Sanitation</h2>
 
     <h3>Insects</h3>
     <p>Indoors, the most common pests are small soft-bodied insects: aphids, thrips, mites, and whiteflies. They thrive indoors because there are no natural predators. Once established they multiply fast.</p>
@@ -324,7 +362,7 @@
   <!-- ============================================================ -->
   <div class="section">
     <p class="section-label">Harvest</p>
-    <h2>Harvesting</h2>
+    <h2 id="harvesting">Harvesting</h2>
 
     <h3>Continuous Harvest (herbs, leaf lettuce)</h3>
     <p>Cut the most mature (lowest) leaves or stems as needed and let the plant keep growing. Most hydroponic growers harvest 3–5 times from the same plants before starting fresh with new seed. Growth slows over time — that's the signal to replant.</p>
@@ -341,7 +379,7 @@
   <!-- ============================================================ -->
   <div class="section">
     <p class="section-label">Quick Reference</p>
-    <h2>What to Grow &amp; When</h2>
+    <h2 id="what-to-grow-and-when">What to Grow &amp; When</h2>
 
     <table class="data-table">
       <thead>
@@ -368,5 +406,19 @@
   <p>Paterstead Reference — personal project notes</p>
 </footer>
 
+  <script>
+    const nav = document.getElementById('pageNav');
+    const toggle = document.getElementById('pageNavToggle');
+    toggle.addEventListener('click', () => {
+      const isOpen = nav.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', isOpen);
+    });
+    document.querySelectorAll('.page-nav-list a').forEach(link => {
+      link.addEventListener('click', () => {
+        nav.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+  </script>
 </body>
 </html>

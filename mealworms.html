@@ -5,6 +5,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mealworm Farm — Paterstead Reference</title>
   <link rel="stylesheet" href="style.css">
+  <style>
+    /* Side nav */
+    .page-nav { position: fixed; top: 80px; right: 0; z-index: 100; display: flex; flex-direction: column; align-items: flex-end; }
+    .page-nav-toggle { background: var(--moss); color: var(--cream); border: none; border-radius: 6px 0 0 6px; padding: 8px 12px; font-family: inherit; font-size: 0.8rem; font-weight: 600; cursor: pointer; letter-spacing: 0.04em; text-transform: uppercase; display: flex; align-items: center; gap: 6px; white-space: nowrap; transition: background 0.2s; box-shadow: -2px 2px 6px rgba(0,0,0,0.15); }
+    .page-nav-toggle:hover { background: var(--bark); }
+    .page-nav-toggle .arrow { display: inline-block; transition: transform 0.25s; font-style: normal; }
+    .page-nav.open .page-nav-toggle .arrow { transform: rotate(180deg); }
+    .page-nav-list { background: var(--cream); border: 1px solid var(--tan); border-right: none; border-radius: 6px 0 0 6px; padding: 10px 0; min-width: 210px; max-height: calc(100vh - 120px); overflow-y: auto; box-shadow: -3px 3px 10px rgba(0,0,0,0.12); display: none; margin-top: 4px; }
+    .page-nav.open .page-nav-list { display: block; }
+    .page-nav-list a { display: block; padding: 7px 18px; font-family: inherit; font-size: 0.82rem; color: var(--bark); text-decoration: none; line-height: 1.35; transition: background 0.15s, color 0.15s; border-left: 3px solid transparent; }
+    .page-nav-list a:hover { background: #ede6d6; border-left-color: var(--moss); color: var(--bark); }
+    .page-nav-list .nav-category { display: block; padding: 8px 18px 3px; font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--tan); margin-top: 4px; }
+    @media (max-width: 640px) { .page-nav { top: 56px; } .page-nav-list { min-width: 180px; } }
+    /* Section separators */
+    .section + .section { border-top: 2px solid var(--wheat); padding-top: 2.5rem; margin-top: 1rem; }
+    /* Step photos */
+    .step-photos { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 1.25rem 0 0.5rem; }
+    .step-photos img { width: 135px; height: auto; border-radius: 4px; border: 1px solid var(--tan); object-fit: cover; display: block; }
+    .step-photos-label { font-size: 0.75rem; color: var(--tan); font-style: italic; margin: -0.25rem 0 1rem; letter-spacing: 0.01em; }
+  </style>
 </head>
 <body>
 
@@ -31,6 +51,19 @@
   </div>
 </nav>
 
+  <nav class="page-nav" id="pageNav" aria-label="Page sections">
+    <button class="page-nav-toggle" id="pageNavToggle" aria-expanded="false" aria-controls="pageNavList">
+      <i class="arrow">◀</i> On This Page
+    </button>
+    <div class="page-nav-list" id="pageNavList" role="list">
+          <a href="#how-it-works">How It Works</a>
+          <a href="#supplies">Supplies</a>
+          <a href="#setting-up-your-farm">Setting Up Your Farm</a>
+          <a href="#feeding-hydration-and-rotation">Feeding, Hydration and Rotation</a>
+          <a href="#conditions-and-harvesting">Conditions and Harvesting</a>
+    </div>
+  </nav>
+
 <header class="page-hero">
   <p class="eyebrow">Feed</p>
   <h1>Mealworm Farm</h1>
@@ -44,7 +77,7 @@
   <!-- ============================================================ -->
   <div class="section">
     <p class="section-label">Overview</p>
-    <h2>How It Works</h2>
+    <h2 id="how-it-works">How It Works</h2>
 
     <p>Mealworms are the larval stage of the darkling beetle (<em>Tenebrio molitor</em>). You maintain a rotating colony of 4 bins at different life stages. When a bin completes its cycle, you compost it and start a new one, keeping the colony going continuously.</p>
 
@@ -59,7 +92,7 @@
   <!-- ============================================================ -->
   <div class="section">
     <p class="section-label">Setup</p>
-    <h2>Supplies</h2>
+    <h2 id="supplies">Supplies</h2>
 
     <div class="materials-box">
       <h4>What You Need</h4>
@@ -78,7 +111,7 @@
   <!-- ============================================================ -->
   <div class="section">
     <p class="section-label">Getting Started</p>
-    <h2>Setting Up Your Farm</h2>
+    <h2 id="setting-up-your-farm">Setting Up Your Farm</h2>
 
     <ol class="steps">
       <li><strong>Prepare the bin.</strong> Clean and dry your plastic tub. Add a 2–3" layer of wheat bran.</li>
@@ -92,7 +125,7 @@
   <!-- ============================================================ -->
   <div class="section">
     <p class="section-label">Ongoing Care</p>
-    <h2>Feeding, Hydration &amp; Rotation</h2>
+    <h2 id="feeding-hydration-and-rotation">Feeding, Hydration &amp; Rotation</h2>
 
     <h3>Feeding and Hydration</h3>
     <p>Replace the vegetable scraps every 4–8 days. Remove old pieces before adding new ones to prevent mold. The wheat bran is the primary food — top it off as it gets consumed. No standing water ever in the bin.</p>
@@ -111,7 +144,7 @@
   <!-- ============================================================ -->
   <div class="section">
     <p class="section-label">Environment &amp; Harvest</p>
-    <h2>Conditions &amp; Harvesting</h2>
+    <h2 id="conditions-and-harvesting">Conditions &amp; Harvesting</h2>
 
     <h3>Ideal Conditions</h3>
     <table class="data-table">
@@ -144,5 +177,19 @@
   <p>Paterstead Reference — personal project notes</p>
 </footer>
 
+  <script>
+    const nav = document.getElementById('pageNav');
+    const toggle = document.getElementById('pageNavToggle');
+    toggle.addEventListener('click', () => {
+      const isOpen = nav.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', isOpen);
+    });
+    document.querySelectorAll('.page-nav-list a').forEach(link => {
+      link.addEventListener('click', () => {
+        nav.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+  </script>
 </body>
 </html>

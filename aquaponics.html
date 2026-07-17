@@ -5,6 +5,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Aquaponics — Paterstead Reference</title>
   <link rel="stylesheet" href="style.css">
+  <style>
+    /* Side nav */
+    .page-nav { position: fixed; top: 80px; right: 0; z-index: 100; display: flex; flex-direction: column; align-items: flex-end; }
+    .page-nav-toggle { background: var(--moss); color: var(--cream); border: none; border-radius: 6px 0 0 6px; padding: 8px 12px; font-family: inherit; font-size: 0.8rem; font-weight: 600; cursor: pointer; letter-spacing: 0.04em; text-transform: uppercase; display: flex; align-items: center; gap: 6px; white-space: nowrap; transition: background 0.2s; box-shadow: -2px 2px 6px rgba(0,0,0,0.15); }
+    .page-nav-toggle:hover { background: var(--bark); }
+    .page-nav-toggle .arrow { display: inline-block; transition: transform 0.25s; font-style: normal; }
+    .page-nav.open .page-nav-toggle .arrow { transform: rotate(180deg); }
+    .page-nav-list { background: var(--cream); border: 1px solid var(--tan); border-right: none; border-radius: 6px 0 0 6px; padding: 10px 0; min-width: 210px; max-height: calc(100vh - 120px); overflow-y: auto; box-shadow: -3px 3px 10px rgba(0,0,0,0.12); display: none; margin-top: 4px; }
+    .page-nav.open .page-nav-list { display: block; }
+    .page-nav-list a { display: block; padding: 7px 18px; font-family: inherit; font-size: 0.82rem; color: var(--bark); text-decoration: none; line-height: 1.35; transition: background 0.15s, color 0.15s; border-left: 3px solid transparent; }
+    .page-nav-list a:hover { background: #ede6d6; border-left-color: var(--moss); color: var(--bark); }
+    .page-nav-list .nav-category { display: block; padding: 8px 18px 3px; font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--tan); margin-top: 4px; }
+    @media (max-width: 640px) { .page-nav { top: 56px; } .page-nav-list { min-width: 180px; } }
+    /* Section separators */
+    .section + .section { border-top: 2px solid var(--wheat); padding-top: 2.5rem; margin-top: 1rem; }
+    /* Step photos */
+    .step-photos { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 1.25rem 0 0.5rem; }
+    .step-photos img { width: 135px; height: auto; border-radius: 4px; border: 1px solid var(--tan); object-fit: cover; display: block; }
+    .step-photos-label { font-size: 0.75rem; color: var(--tan); font-style: italic; margin: -0.25rem 0 1rem; letter-spacing: 0.01em; }
+  </style>
 </head>
 <body>
 
@@ -30,6 +50,26 @@
   </div>
 </nav>
 
+  <nav class="page-nav" id="pageNav" aria-label="Page sections">
+    <button class="page-nav-toggle" id="pageNavToggle" aria-expanded="false" aria-controls="pageNavList">
+      <i class="arrow">◀</i> On This Page
+    </button>
+    <div class="page-nav-list" id="pageNavList" role="list">
+          <a href="#saved-videos">Saved Videos</a>
+          <a href="#how-aquaponics-works">How Aquaponics Works</a>
+          <a href="#system-types">System Types</a>
+          <a href="#ibc-chop-and-flip-system">IBC Chop and Flip System</a>
+          <a href="#multi-bed-ibc-system">Multi-Bed IBC System</a>
+          <a href="#bell-siphons">Bell Siphons</a>
+          <a href="#cycling-the-system">Cycling the System</a>
+          <a href="#choosing-your-fish">Choosing Your Fish</a>
+          <a href="#grow-bed-media">Grow Bed Media</a>
+          <a href="#water-quality">Water Quality</a>
+          <a href="#plants-for-aquaponics">Plants for Aquaponics</a>
+          <a href="#system-checklist">System Checklist</a>
+    </div>
+  </nav>
+
 <header class="page-hero">
   <p class="eyebrow">Growing + Fish</p>
   <h1>Aquaponics</h1>
@@ -43,7 +83,7 @@
   <!-- ============================================================ -->
   <div class="section">
     <p class="section-label">Reference Videos</p>
-    <h2>Saved Videos</h2>
+    <h2 id="saved-videos">Saved Videos</h2>
     <div class="video-links">
       <a href="https://youtu.be/ETE3muY6mYo" target="_blank" rel="noopener" class="video-link">
         <div class="video-icon">▶</div>
@@ -61,7 +101,7 @@
   <!-- ============================================================ -->
   <div class="section">
     <p class="section-label">Overview</p>
-    <h2>How Aquaponics Works</h2>
+    <h2 id="how-aquaponics-works">How Aquaponics Works</h2>
 
     <p>Aquaponics combines fish farming (aquaculture) with soilless plant growing (hydroponics) in a single recirculating system. Fish produce waste that breaks down into ammonia. Beneficial bacteria in the grow bed media convert that ammonia into nitrites, then into nitrates — which are plant fertilizer. The plants absorb the nitrates, cleaning the water, which flows back to the fish. Everyone wins.</p>
 
@@ -88,7 +128,7 @@
   <!-- ============================================================ -->
   <div class="section">
     <p class="section-label">System Design</p>
-    <h2>System Types</h2>
+    <h2 id="system-types">System Types</h2>
 
     <h3>Media-Bed (Flood and Drain) — Best for Beginners</h3>
     <p>Grow beds are filled with media (expanded clay, lava rock, gravel) and flood periodically with water pumped from the fish tank, then drain back. The media hosts the bacteria colony and supports plant roots. This is the most beginner-friendly design and what both reference videos use. The flood-and-drain cycle is controlled automatically by a bell siphon — no timer needed.</p>
@@ -105,7 +145,7 @@
   <!-- ============================================================ -->
   <div class="section">
     <p class="section-label">Build Option 1 · Beginner · ~$200–300</p>
-    <h2>IBC Chop &amp; Flip System</h2>
+    <h2 id="ibc-chop-and-flip-system">IBC Chop &amp; Flip System</h2>
     <p>From the Hoocho video. A single IBC (Intermediate Bulk Container) tote is cut and flipped to create both the fish tank and the grow bed in one compact unit. One of the most popular starter builds — it's a one-day project and can be expanded later.</p>
 
     <div class="materials-box">
@@ -152,7 +192,7 @@
   <!-- ============================================================ -->
   <div class="section">
     <p class="section-label">Build Option 2 · Experienced · Scale Up</p>
-    <h2>Multi-Bed IBC System</h2>
+    <h2 id="multi-bed-ibc-system">Multi-Bed IBC System</h2>
     <p>From the Shawn Paul / MorningStar Aquaponics video. This is a larger backyard system using two fish tanks, six grow beds, and biofilters — built from IBC tanks cut in half. The video went viral in the aquaponics community and is a great reference for understanding how a more complete system is laid out.</p>
 
     <h3>Key Design Features</h3>
@@ -181,7 +221,7 @@
   <!-- ============================================================ -->
   <div class="section">
     <p class="section-label">Key Component</p>
-    <h2>Bell Siphons</h2>
+    <h2 id="bell-siphons">Bell Siphons</h2>
 
     <p>The bell siphon is the heart of a flood-and-drain aquaponics system. It creates an automatic flooding and draining cycle using only gravity and water pressure — no timers, no electricity in the siphon itself.</p>
 
@@ -209,7 +249,7 @@
   <!-- ============================================================ -->
   <div class="section">
     <p class="section-label">Critical First Step</p>
-    <h2>Cycling the System</h2>
+    <h2 id="cycling-the-system">Cycling the System</h2>
 
     <p>Cycling is the process of building up a healthy colony of nitrifying bacteria in your grow media before adding fish or plants. This is the most important step beginners skip — adding fish to an uncycled system will kill them from ammonia buildup.</p>
 
@@ -235,7 +275,7 @@
   <!-- ============================================================ -->
   <div class="section">
     <p class="section-label">Fish Selection</p>
-    <h2>Choosing Your Fish</h2>
+    <h2 id="choosing-your-fish">Choosing Your Fish</h2>
 
     <table class="data-table">
       <thead>
@@ -286,7 +326,7 @@
   <!-- ============================================================ -->
   <div class="section">
     <p class="section-label">Media</p>
-    <h2>Grow Bed Media</h2>
+    <h2 id="grow-bed-media">Grow Bed Media</h2>
 
     <p>The media in your grow bed does three jobs: supports plant roots, hosts the bacteria colony, and filters solids from the water. Choose media that is pH-neutral and won't leach chemicals into the water.</p>
 
@@ -329,7 +369,7 @@
   <!-- ============================================================ -->
   <div class="section">
     <p class="section-label">Maintenance</p>
-    <h2>Water Quality</h2>
+    <h2 id="water-quality">Water Quality</h2>
 
     <p>You'll need an aquarium test kit that measures at minimum: ammonia, nitrite, nitrate, and pH. Test weekly once the system is established, daily during cycling or if fish look stressed.</p>
 
@@ -361,7 +401,7 @@
   <!-- ============================================================ -->
   <div class="section">
     <p class="section-label">What to Grow</p>
-    <h2>Plants for Aquaponics</h2>
+    <h2 id="plants-for-aquaponics">Plants for Aquaponics</h2>
 
     <p>Most plants that grow in hydroponics also do well in aquaponics. Leafy greens and herbs are the easiest and most productive. Fruiting plants like tomatoes and peppers need higher nutrient levels — only attempt them once your fish load is high enough to support it.</p>
 
@@ -383,7 +423,7 @@
   <!-- ============================================================ -->
   <div class="section">
     <p class="section-label">Quick Reference</p>
-    <h2>System Checklist</h2>
+    <h2 id="system-checklist">System Checklist</h2>
 
     <div class="materials-box">
       <h4>Before You Add Fish</h4>
@@ -417,5 +457,19 @@
   <p>Paterstead Reference — personal project notes</p>
 </footer>
 
+  <script>
+    const nav = document.getElementById('pageNav');
+    const toggle = document.getElementById('pageNavToggle');
+    toggle.addEventListener('click', () => {
+      const isOpen = nav.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', isOpen);
+    });
+    document.querySelectorAll('.page-nav-list a').forEach(link => {
+      link.addEventListener('click', () => {
+        nav.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+  </script>
 </body>
 </html>

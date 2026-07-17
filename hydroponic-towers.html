@@ -5,6 +5,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Hydroponic Towers — Paterstead Reference</title>
   <link rel="stylesheet" href="style.css">
+  <style>
+    /* Side nav */
+    .page-nav { position: fixed; top: 80px; right: 0; z-index: 100; display: flex; flex-direction: column; align-items: flex-end; }
+    .page-nav-toggle { background: var(--moss); color: var(--cream); border: none; border-radius: 6px 0 0 6px; padding: 8px 12px; font-family: inherit; font-size: 0.8rem; font-weight: 600; cursor: pointer; letter-spacing: 0.04em; text-transform: uppercase; display: flex; align-items: center; gap: 6px; white-space: nowrap; transition: background 0.2s; box-shadow: -2px 2px 6px rgba(0,0,0,0.15); }
+    .page-nav-toggle:hover { background: var(--bark); }
+    .page-nav-toggle .arrow { display: inline-block; transition: transform 0.25s; font-style: normal; }
+    .page-nav.open .page-nav-toggle .arrow { transform: rotate(180deg); }
+    .page-nav-list { background: var(--cream); border: 1px solid var(--tan); border-right: none; border-radius: 6px 0 0 6px; padding: 10px 0; min-width: 210px; max-height: calc(100vh - 120px); overflow-y: auto; box-shadow: -3px 3px 10px rgba(0,0,0,0.12); display: none; margin-top: 4px; }
+    .page-nav.open .page-nav-list { display: block; }
+    .page-nav-list a { display: block; padding: 7px 18px; font-family: inherit; font-size: 0.82rem; color: var(--bark); text-decoration: none; line-height: 1.35; transition: background 0.15s, color 0.15s; border-left: 3px solid transparent; }
+    .page-nav-list a:hover { background: #ede6d6; border-left-color: var(--moss); color: var(--bark); }
+    .page-nav-list .nav-category { display: block; padding: 8px 18px 3px; font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--tan); margin-top: 4px; }
+    @media (max-width: 640px) { .page-nav { top: 56px; } .page-nav-list { min-width: 180px; } }
+    /* Section separators */
+    .section + .section { border-top: 2px solid var(--wheat); padding-top: 2.5rem; margin-top: 1rem; }
+    /* Step photos */
+    .step-photos { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 1.25rem 0 0.5rem; }
+    .step-photos img { width: 135px; height: auto; border-radius: 4px; border: 1px solid var(--tan); object-fit: cover; display: block; }
+    .step-photos-label { font-size: 0.75rem; color: var(--tan); font-style: italic; margin: -0.25rem 0 1rem; letter-spacing: 0.01em; }
+  </style>
 </head>
 <body>
 
@@ -31,6 +51,26 @@
   </div>
 </nav>
 
+  <nav class="page-nav" id="pageNav" aria-label="Page sections">
+    <button class="page-nav-toggle" id="pageNavToggle" aria-expanded="false" aria-controls="pageNavList">
+      <i class="arrow">◀</i> On This Page
+    </button>
+    <div class="page-nav-list" id="pageNavList" role="list">
+          <a href="#saved-videos">Saved Videos</a>
+          <a href="#how-a-tower-works">How a Tower Works</a>
+          <a href="#3d-printed-modular-tower">3D-Printed Modular Tower</a>
+          <a href="#pvc-pipe-tower-with-angled-pockets">PVC Pipe Tower with Angled Pockets</a>
+          <a href="#pump-sizing-and-flow">Pump Sizing and Flow</a>
+          <a href="#hole-spacing-and-pipe-size">Hole Spacing and Pipe Size</a>
+          <a href="#nutrient-solution-management">Nutrient Solution Management</a>
+          <a href="#best-plants-for-towers">Best Plants for Towers</a>
+          <a href="#quick-reference">Quick Reference</a>
+          <a href="#grozine-heat-gun-pvc-tower">Grozine Heat-Gun PVC Tower</a>
+          <a href="#connecting-towers-to-a-fish-system">Connecting Towers to a Fish System</a>
+          <a href="#additional-build-reference">Additional Build Reference</a>
+    </div>
+  </nav>
+
 <header class="page-hero">
   <p class="eyebrow">Growing · Vertical</p>
   <h1>Hydroponic Towers</h1>
@@ -44,7 +84,7 @@
   <!-- ============================================================ -->
   <div class="section">
     <p class="section-label">Reference Videos</p>
-    <h2>Saved Videos</h2>
+    <h2 id="saved-videos">Saved Videos</h2>
     <div class="video-links">
       <a href="https://youtu.be/Q0J1a35OVy4?si=v4Un5A6c8VQn1t_S" target="_blank" rel="noopener" class="video-link">
         <div class="video-icon">▶</div>
@@ -66,7 +106,7 @@
   <!-- ============================================================ -->
   <div class="section">
     <p class="section-label">Overview</p>
-    <h2>How a Tower Works</h2>
+    <h2 id="how-a-tower-works">How a Tower Works</h2>
 
     <p>A hydroponic tower is a vertical column with plant sites along its sides. A submersible pump in the reservoir at the base pushes nutrient solution up a central tube to the top of the tower. Water trickles down past all the plant roots and drains back into the reservoir — a continuous loop. No soil, minimal space, and the same water recirculates rather than being wasted.</p>
 
@@ -93,7 +133,7 @@
   <!-- ============================================================ -->
   <div class="section">
     <p class="section-label">Build Option 1 · Modular · 3D Printed</p>
-    <h2>3D-Printed Modular Tower</h2>
+    <h2 id="3d-printed-modular-tower">3D-Printed Modular Tower</h2>
 
     <p>From the first video. Stackable 3D-printed planting sections snap together around a central column, with a printed top cap that distributes water down through the tower. The creator sells the printed parts but the STL files for similar designs are freely available on Printables.com. This design is cleaner-looking and easier to expand than a PVC build — just print and stack another section.</p>
 
@@ -146,7 +186,7 @@
   <!-- ============================================================ -->
   <div class="section">
     <p class="section-label">Build Option 2 · PVC Pipe · No Printer Needed</p>
-    <h2>PVC Pipe Tower with Angled Pockets</h2>
+    <h2 id="pvc-pipe-tower-with-angled-pockets">PVC Pipe Tower with Angled Pockets</h2>
 
     <p>From the second video. A single 4" PVC pipe has angled planting pockets cut or formed along its length. No 3D printer needed — just PVC pipe, basic tools, and a 5-gallon bucket reservoir. This is the most common DIY approach and the most tutorials exist for it.</p>
 
@@ -208,7 +248,7 @@
   <!-- ============================================================ -->
   <div class="section">
     <p class="section-label">Key Specs</p>
-    <h2>Pump Sizing &amp; Flow</h2>
+    <h2 id="pump-sizing-and-flow">Pump Sizing &amp; Flow</h2>
 
     <p>This is the most common beginner mistake. An undersized pump means the top plant sites get no water. Every foot of vertical height requires additional pump capacity.</p>
 
@@ -237,7 +277,7 @@
   <!-- ============================================================ -->
   <div class="section">
     <p class="section-label">Layout</p>
-    <h2>Hole Spacing &amp; Pipe Size</h2>
+    <h2 id="hole-spacing-and-pipe-size">Hole Spacing &amp; Pipe Size</h2>
 
     <table class="data-table">
       <thead><tr><th>Factor</th><th>Recommendation</th></tr></thead>
@@ -263,7 +303,7 @@
   <!-- ============================================================ -->
   <div class="section">
     <p class="section-label">Nutrients &amp; Water</p>
-    <h2>Nutrient Solution Management</h2>
+    <h2 id="nutrient-solution-management">Nutrient Solution Management</h2>
 
     <p>Tower systems have a small reservoir relative to the number of plants. That means water and nutrient levels change faster than in a large DWC bucket — check more frequently.</p>
 
@@ -288,7 +328,7 @@
   <!-- ============================================================ -->
   <div class="section">
     <p class="section-label">Crops</p>
-    <h2>Best Plants for Towers</h2>
+    <h2 id="best-plants-for-towers">Best Plants for Towers</h2>
 
     <table class="data-table">
       <thead>
@@ -316,7 +356,7 @@
   <!-- ============================================================ -->
   <div class="section">
     <p class="section-label">Maintenance</p>
-    <h2>Quick Reference</h2>
+    <h2 id="quick-reference">Quick Reference</h2>
 
     <table class="data-table">
       <thead><tr><th>Task</th><th>Frequency</th></tr></thead>
@@ -342,7 +382,7 @@
   <!-- ============================================================ -->
   <div class="section">
     <p class="section-label">Build Option 3 · PVC · Heat-Gun Pockets · Aquaponics-Compatible</p>
-    <h2>Grozine Heat-Gun PVC Tower</h2>
+    <h2 id="grozine-heat-gun-pvc-tower">Grozine Heat-Gun PVC Tower</h2>
     <p>Source: <a href="https://www.grozine.com/2015/04/07/diy-vertical-aquaponics-system/" target="_blank" rel="noopener" style="color:var(--forest);">Grozine — DIY Vertical Aquaponics System</a> by Erik Biksa</p>
 
     <p>This build is similar to the angled-pocket PVC method on the page already but with a few key differences: it uses a <strong>cedar support frame</strong> with carriage bolts to hold the tubes upright rather than a freestanding design, planting sites wrap <strong>360 degrees</strong> around the tube (not just one face), and it's specifically designed to integrate with an aquaponics system — though it works equally well as a standalone hydroponics tower.</p>
@@ -409,7 +449,7 @@
   <!-- ============================================================ -->
   <div class="section">
     <p class="section-label">Aquaponics Integration</p>
-    <h2>Connecting Towers to a Fish System</h2>
+    <h2 id="connecting-towers-to-a-fish-system">Connecting Towers to a Fish System</h2>
     <p>Source: <a href="https://lgpress.clemson.edu/publication/aquaponics-system-layout-and-components/" target="_blank" rel="noopener" style="color:var(--forest);">Clemson University Land-Grant Press — Aquaponics: System Layout and Components</a> by Lance Beecher (peer-reviewed)</p>
 
     <p>A vertical tower is one of several plant system options in aquaponics. The Clemson publication covers the full component picture — useful for understanding what your tower is connecting into when you run it off a fish system rather than a simple nutrient reservoir.</p>
@@ -466,7 +506,7 @@
   <!-- ============================================================ -->
   <div class="section">
     <p class="section-label">Video Reference</p>
-    <h2>Additional Build Reference</h2>
+    <h2 id="additional-build-reference">Additional Build Reference</h2>
 
     <p>Another tower build walkthrough to reference alongside the builds above.</p>
 
@@ -489,5 +529,19 @@
   <p>Paterstead Reference — personal project notes</p>
 </footer>
 
+  <script>
+    const nav = document.getElementById('pageNav');
+    const toggle = document.getElementById('pageNavToggle');
+    toggle.addEventListener('click', () => {
+      const isOpen = nav.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', isOpen);
+    });
+    document.querySelectorAll('.page-nav-list a').forEach(link => {
+      link.addEventListener('click', () => {
+        nav.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+  </script>
 </body>
 </html>

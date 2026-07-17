@@ -5,6 +5,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Little Free Library — Paterstead Reference</title>
   <link rel="stylesheet" href="style.css">
+  <style>
+    /* Side nav */
+    .page-nav { position: fixed; top: 80px; right: 0; z-index: 100; display: flex; flex-direction: column; align-items: flex-end; }
+    .page-nav-toggle { background: var(--moss); color: var(--cream); border: none; border-radius: 6px 0 0 6px; padding: 8px 12px; font-family: inherit; font-size: 0.8rem; font-weight: 600; cursor: pointer; letter-spacing: 0.04em; text-transform: uppercase; display: flex; align-items: center; gap: 6px; white-space: nowrap; transition: background 0.2s; box-shadow: -2px 2px 6px rgba(0,0,0,0.15); }
+    .page-nav-toggle:hover { background: var(--bark); }
+    .page-nav-toggle .arrow { display: inline-block; transition: transform 0.25s; font-style: normal; }
+    .page-nav.open .page-nav-toggle .arrow { transform: rotate(180deg); }
+    .page-nav-list { background: var(--cream); border: 1px solid var(--tan); border-right: none; border-radius: 6px 0 0 6px; padding: 10px 0; min-width: 210px; max-height: calc(100vh - 120px); overflow-y: auto; box-shadow: -3px 3px 10px rgba(0,0,0,0.12); display: none; margin-top: 4px; }
+    .page-nav.open .page-nav-list { display: block; }
+    .page-nav-list a { display: block; padding: 7px 18px; font-family: inherit; font-size: 0.82rem; color: var(--bark); text-decoration: none; line-height: 1.35; transition: background 0.15s, color 0.15s; border-left: 3px solid transparent; }
+    .page-nav-list a:hover { background: #ede6d6; border-left-color: var(--moss); color: var(--bark); }
+    .page-nav-list .nav-category { display: block; padding: 8px 18px 3px; font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--tan); margin-top: 4px; }
+    @media (max-width: 640px) { .page-nav { top: 56px; } .page-nav-list { min-width: 180px; } }
+    /* Section separators */
+    .section + .section { border-top: 2px solid var(--wheat); padding-top: 2.5rem; margin-top: 1rem; }
+    /* Step photos */
+    .step-photos { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 1.25rem 0 0.5rem; }
+    .step-photos img { width: 135px; height: auto; border-radius: 4px; border: 1px solid var(--tan); object-fit: cover; display: block; }
+    .step-photos-label { font-size: 0.75rem; color: var(--tan); font-style: italic; margin: -0.25rem 0 1rem; letter-spacing: 0.01em; }
+  </style>
 </head>
 <body>
 
@@ -31,6 +51,21 @@
   </div>
 </nav>
 
+  <nav class="page-nav" id="pageNav" aria-label="Page sections">
+    <button class="page-nav-toggle" id="pageNavToggle" aria-expanded="false" aria-controls="pageNavList">
+      <i class="arrow">◀</i> On This Page
+    </button>
+    <div class="page-nav-list" id="pageNavList" role="list">
+          <a href="#choosing-your-approach">Choosing Your Approach</a>
+          <a href="#installing-on-a-post">Installing on a Post</a>
+          <a href="#kitchen-cabinet-upcycle">Kitchen Cabinet Upcycle</a>
+          <a href="#cedar-roof-basic">Cedar Roof Basic</a>
+          <a href="#modern-two-story">Modern Two-Story</a>
+          <a href="#painting-staining-and-weather-protection">Painting, Staining and Weather Protection</a>
+          <a href="#registration-and-community">Registration and Community</a>
+    </div>
+  </nav>
+
 <header class="page-hero">
   <p class="eyebrow">Community · Porch Project</p>
   <h1>Little Free Library</h1>
@@ -44,7 +79,7 @@
   <!-- ============================================================ -->
   <div class="section">
     <p class="section-label">Overview</p>
-    <h2>Choosing Your Approach</h2>
+    <h2 id="choosing-your-approach">Choosing Your Approach</h2>
 
     <table class="data-table">
       <thead>
@@ -89,7 +124,15 @@
   <!-- ============================================================ -->
   <div class="section">
     <p class="section-label">Installation · Official Guide</p>
-    <h2>Installing on a Post</h2>
+    <h2 id="installing-on-a-post">Installing on a Post</h2>
+
+        <div class="step-photos">
+          <img src="images/library-install-001.jpg" alt="" loading="lazy">
+          <img src="images/library-install-002.jpg" alt="" loading="lazy">
+          <img src="images/library-install-003.jpg" alt="" loading="lazy">
+        </div>
+        <p class="step-photos-label">Post installation photos from plan guide</p>
+
     <p>Source: <em>How to Install a Little Free Library</em> — official guide from LittleFreeLibrary.org</p>
 
     <p>This guide applies whether you buy a pre-built LFL box, build one from the plans below, or upcycle a cabinet. The post installation is the same for all of them.</p>
@@ -142,7 +185,21 @@
   <!-- ============================================================ -->
   <div class="section">
     <p class="section-label">Build · Easiest · Upcycle</p>
-    <h2>Kitchen Cabinet Upcycle</h2>
+    <h2 id="kitchen-cabinet-upcycle">Kitchen Cabinet Upcycle</h2>
+
+        <div class="step-photos">
+          <img src="images/library-kitchen-001.jpg" alt="" loading="lazy">
+          <img src="images/library-kitchen-002.jpg" alt="" loading="lazy">
+          <img src="images/library-kitchen-003.jpg" alt="" loading="lazy">
+          <img src="images/library-kitchen-004.jpg" alt="" loading="lazy">
+          <img src="images/library-kitchen-005.jpg" alt="" loading="lazy">
+          <img src="images/library-kitchen-006.jpg" alt="" loading="lazy">
+          <img src="images/library-kitchen-007.jpg" alt="" loading="lazy">
+          <img src="images/library-kitchen-008.jpg" alt="" loading="lazy">
+          <img src="images/library-kitchen-009.jpg" alt="" loading="lazy">
+        </div>
+        <p class="step-photos-label">Step photos from Kitchen Cabinet plan</p>
+
     <p>Source: <em>Kitchen Cabinet Upcycle</em> — from the Little Free Library book of project plans</p>
 
     <p>An old kitchen wall cabinet is already a complete six-sided wood box with doors. All it needs is a roof and thorough weatherproofing. You can source a cabinet from a Habitat for Humanity ReStore, Facebook Marketplace, or Craigslist for next to nothing. Frame-and-panel cabinet doors are a bonus — you can easily swap the wood panels for acrylic glazing to create see-through windows.</p>
@@ -197,7 +254,21 @@
   <!-- ============================================================ -->
   <div class="section">
     <p class="section-label">Build · From Scratch · Classic</p>
-    <h2>Cedar Roof Basic</h2>
+    <h2 id="cedar-roof-basic">Cedar Roof Basic</h2>
+
+        <div class="step-photos">
+          <img src="images/library-cedar-001.jpg" alt="" loading="lazy">
+          <img src="images/library-cedar-002.jpg" alt="" loading="lazy">
+          <img src="images/library-cedar-003.jpg" alt="" loading="lazy">
+          <img src="images/library-cedar-004.jpg" alt="" loading="lazy">
+          <img src="images/library-cedar-005.jpg" alt="" loading="lazy">
+          <img src="images/library-cedar-006.jpg" alt="" loading="lazy">
+          <img src="images/library-cedar-007.jpg" alt="" loading="lazy">
+          <img src="images/library-cedar-008.jpg" alt="" loading="lazy">
+          <img src="images/library-cedar-009.jpg" alt="" loading="lazy">
+        </div>
+        <p class="step-photos-label">Step photos from Cedar Roof Basic plan</p>
+
     <p>Source: <em>Cedar Roof Basic</em> — from the Little Free Library book of project plans</p>
 
     <p>A classic gable-roof library with a distinctive look: the door is on the side under the eave rather than on the gable end, making the interior easier to access. The roof uses beveled cedar siding (also called lap siding or clapboard) for a stepped shingle effect. The main structure is a plywood box — the cedar roofing and trim are where the character comes from.</p>
@@ -266,7 +337,20 @@
   <!-- ============================================================ -->
   <div class="section">
     <p class="section-label">Build · From Scratch · Modern</p>
-    <h2>Modern Two-Story</h2>
+    <h2 id="modern-two-story">Modern Two-Story</h2>
+
+        <div class="step-photos">
+          <img src="images/library-modern-001.jpg" alt="" loading="lazy">
+          <img src="images/library-modern-002.jpg" alt="" loading="lazy">
+          <img src="images/library-modern-003.jpg" alt="" loading="lazy">
+          <img src="images/library-modern-004.jpg" alt="" loading="lazy">
+          <img src="images/library-modern-005.jpg" alt="" loading="lazy">
+          <img src="images/library-modern-006.jpg" alt="" loading="lazy">
+          <img src="images/library-modern-007.jpg" alt="" loading="lazy">
+          <img src="images/library-modern-008.jpg" alt="" loading="lazy">
+        </div>
+        <p class="step-photos-label">Step photos from Modern Two-Story plan</p>
+
     <p>Source: <em>Modern Two-Story</em> — from the Little Free Library book of project plans</p>
 
     <p>A larger, contemporary structure with a side-sloping shed roof (rather than front-to-back) and a sheet-metal roof surface. The sloping roofline means the door follows the angle — making it a trapezoid rather than a rectangle, which sounds tricky but is mostly just angled miter cuts on otherwise standard pieces. The design has an interior shelf for a two-story book arrangement.</p>
@@ -321,7 +405,7 @@
   <!-- ============================================================ -->
   <div class="section">
     <p class="section-label">Finishing</p>
-    <h2>Painting, Staining &amp; Weather Protection</h2>
+    <h2 id="painting-staining-and-weather-protection">Painting, Staining &amp; Weather Protection</h2>
 
     <table class="data-table">
       <thead>
@@ -377,7 +461,7 @@
   <!-- ============================================================ -->
   <div class="section">
     <p class="section-label">Community</p>
-    <h2>Registration &amp; Community</h2>
+    <h2 id="registration-and-community">Registration &amp; Community</h2>
 
     <p>Registering your library is free and puts it on the official world map at LittleFreeLibrary.org — making it findable by neighbors and visitors. You get a charter number and a sign to display on the door.</p>
 
@@ -393,5 +477,19 @@
   <p>Paterstead Reference — personal project notes</p>
 </footer>
 
+  <script>
+    const nav = document.getElementById('pageNav');
+    const toggle = document.getElementById('pageNavToggle');
+    toggle.addEventListener('click', () => {
+      const isOpen = nav.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', isOpen);
+    });
+    document.querySelectorAll('.page-nav-list a').forEach(link => {
+      link.addEventListener('click', () => {
+        nav.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+  </script>
 </body>
 </html>

@@ -5,6 +5,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Worm Composting — Paterstead Reference</title>
   <link rel="stylesheet" href="style.css">
+  <style>
+    /* Side nav */
+    .page-nav { position: fixed; top: 80px; right: 0; z-index: 100; display: flex; flex-direction: column; align-items: flex-end; }
+    .page-nav-toggle { background: var(--moss); color: var(--cream); border: none; border-radius: 6px 0 0 6px; padding: 8px 12px; font-family: inherit; font-size: 0.8rem; font-weight: 600; cursor: pointer; letter-spacing: 0.04em; text-transform: uppercase; display: flex; align-items: center; gap: 6px; white-space: nowrap; transition: background 0.2s; box-shadow: -2px 2px 6px rgba(0,0,0,0.15); }
+    .page-nav-toggle:hover { background: var(--bark); }
+    .page-nav-toggle .arrow { display: inline-block; transition: transform 0.25s; font-style: normal; }
+    .page-nav.open .page-nav-toggle .arrow { transform: rotate(180deg); }
+    .page-nav-list { background: var(--cream); border: 1px solid var(--tan); border-right: none; border-radius: 6px 0 0 6px; padding: 10px 0; min-width: 210px; max-height: calc(100vh - 120px); overflow-y: auto; box-shadow: -3px 3px 10px rgba(0,0,0,0.12); display: none; margin-top: 4px; }
+    .page-nav.open .page-nav-list { display: block; }
+    .page-nav-list a { display: block; padding: 7px 18px; font-family: inherit; font-size: 0.82rem; color: var(--bark); text-decoration: none; line-height: 1.35; transition: background 0.15s, color 0.15s; border-left: 3px solid transparent; }
+    .page-nav-list a:hover { background: #ede6d6; border-left-color: var(--moss); color: var(--bark); }
+    .page-nav-list .nav-category { display: block; padding: 8px 18px 3px; font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--tan); margin-top: 4px; }
+    @media (max-width: 640px) { .page-nav { top: 56px; } .page-nav-list { min-width: 180px; } }
+    /* Section separators */
+    .section + .section { border-top: 2px solid var(--wheat); padding-top: 2.5rem; margin-top: 1rem; }
+    /* Step photos */
+    .step-photos { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 1.25rem 0 0.5rem; }
+    .step-photos img { width: 135px; height: auto; border-radius: 4px; border: 1px solid var(--tan); object-fit: cover; display: block; }
+    .step-photos-label { font-size: 0.75rem; color: var(--tan); font-style: italic; margin: -0.25rem 0 1rem; letter-spacing: 0.01em; }
+  </style>
 </head>
 <body>
 
@@ -30,6 +50,24 @@
   </div>
 </nav>
 
+  <nav class="page-nav" id="pageNav" aria-label="Page sections">
+    <button class="page-nav-toggle" id="pageNavToggle" aria-expanded="false" aria-controls="pageNavList">
+      <i class="arrow">◀</i> On This Page
+    </button>
+    <div class="page-nav-list" id="pageNavList" role="list">
+          <a href="#what-is-vermicomposting">What Is Vermicomposting?</a>
+          <a href="#build-walkthrough">Build Walkthrough</a>
+          <a href="#building-or-choosing-a-bin">Building or Choosing a Bin</a>
+          <a href="#bedding">Bedding</a>
+          <a href="#what-to-feed-and-what-to-avoid">What to Feed (and What to Avoid)</a>
+          <a href="#where-to-keep-the-bin">Where to Keep the Bin</a>
+          <a href="#harvesting-castings-and-worm-tea">Harvesting Castings and Worm Tea</a>
+          <a href="#common-problems-and-fixes">Common Problems and Fixes</a>
+          <a href="#closing-the-loop">Closing the Loop</a>
+          <a href="#at-a-glance">At a Glance</a>
+    </div>
+  </nav>
+
 <header class="page-hero">
   <p class="eyebrow">Soil &amp; Waste</p>
   <h1>Worm Composting</h1>
@@ -43,7 +81,7 @@
   <!-- ============================================================ -->
   <div class="section">
     <p class="section-label">Overview</p>
-    <h2>What Is Vermicomposting?</h2>
+    <h2 id="what-is-vermicomposting">What Is Vermicomposting?</h2>
 
     <p>Worm composting (also called vermicomposting) uses red wiggler worms to convert kitchen scraps into worm castings — a nutrient-dense fertilizer — and worm tea, a liquid fertilizer that drains from the bin. A DIY bin costs around $30 to set up. Even a store-bought system rarely exceeds $150 and can pay for itself in one growing season compared to buying organic fertilizer.</p>
 
@@ -71,7 +109,7 @@
   <!-- ============================================================ -->
   <div class="section">
     <p class="section-label">Video Reference</p>
-    <h2>Build Walkthrough</h2>
+    <h2 id="build-walkthrough">Build Walkthrough</h2>
 
     <p>This video walks through building a highly efficient DIY worm bin that works equally well in a house or apartment. Watch it before you build — seeing the finished setup and how it functions together is worth more than any written description.</p>
 
@@ -113,7 +151,7 @@
   <!-- ============================================================ -->
   <div class="section">
     <p class="section-label">Setup</p>
-    <h2>Building or Choosing a Bin</h2>
+    <h2 id="building-or-choosing-a-bin">Building or Choosing a Bin</h2>
 
     <p>A worm bin needs three things: ventilation, drainage, and darkness. That's it.</p>
 
@@ -148,7 +186,7 @@
   <!-- ============================================================ -->
   <div class="section">
     <p class="section-label">Getting Started</p>
-    <h2>Bedding</h2>
+    <h2 id="bedding">Bedding</h2>
 
     <p>Worms need a moist, carbon-rich bedding to live in. Good bedding materials:</p>
 
@@ -175,7 +213,7 @@
   <!-- ============================================================ -->
   <div class="section">
     <p class="section-label">Feeding</p>
-    <h2>What to Feed (and What to Avoid)</h2>
+    <h2 id="what-to-feed-and-what-to-avoid">What to Feed (and What to Avoid)</h2>
 
     <table class="data-table">
       <thead>
@@ -236,7 +274,7 @@
   <!-- ============================================================ -->
   <div class="section">
     <p class="section-label">Location</p>
-    <h2>Where to Keep the Bin</h2>
+    <h2 id="where-to-keep-the-bin">Where to Keep the Bin</h2>
 
     <table class="data-table">
       <thead><tr><th>Location</th><th>Pros</th><th>Cons</th></tr></thead>
@@ -280,7 +318,7 @@
   <!-- ============================================================ -->
   <div class="section">
     <p class="section-label">Output</p>
-    <h2>Harvesting Castings &amp; Worm Tea</h2>
+    <h2 id="harvesting-castings-and-worm-tea">Harvesting Castings &amp; Worm Tea</h2>
 
     <h3>Worm Castings</h3>
     <p>Harvest every 3–6 months, or when the bin looks more like dark earthy compost than bedding and food scraps. Two harvesting methods:</p>
@@ -307,7 +345,7 @@
   <!-- ============================================================ -->
   <div class="section">
     <p class="section-label">Troubleshooting</p>
-    <h2>Common Problems &amp; Fixes</h2>
+    <h2 id="common-problems-and-fixes">Common Problems &amp; Fixes</h2>
 
     <table class="data-table">
       <thead>
@@ -363,7 +401,7 @@
   <!-- ============================================================ -->
   <div class="section">
     <p class="section-label">Paterstead Integration</p>
-    <h2>Closing the Loop</h2>
+    <h2 id="closing-the-loop">Closing the Loop</h2>
 
     <p>A worm bin fits naturally into a homestead system because almost everything connects:</p>
 
@@ -390,7 +428,7 @@
   <!-- ============================================================ -->
   <div class="section">
     <p class="section-label">Quick Reference</p>
-    <h2>At a Glance</h2>
+    <h2 id="at-a-glance">At a Glance</h2>
 
     <table class="data-table">
       <thead><tr><th>Task</th><th>Frequency</th></tr></thead>
@@ -413,5 +451,19 @@
   <p>Paterstead Reference — personal project notes</p>
 </footer>
 
+  <script>
+    const nav = document.getElementById('pageNav');
+    const toggle = document.getElementById('pageNavToggle');
+    toggle.addEventListener('click', () => {
+      const isOpen = nav.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', isOpen);
+    });
+    document.querySelectorAll('.page-nav-list a').forEach(link => {
+      link.addEventListener('click', () => {
+        nav.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+  </script>
 </body>
 </html>

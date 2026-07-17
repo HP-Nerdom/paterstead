@@ -5,6 +5,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Potting Bench — Paterstead Reference</title>
   <link rel="stylesheet" href="style.css">
+  <style>
+    /* Side nav */
+    .page-nav { position: fixed; top: 80px; right: 0; z-index: 100; display: flex; flex-direction: column; align-items: flex-end; }
+    .page-nav-toggle { background: var(--moss); color: var(--cream); border: none; border-radius: 6px 0 0 6px; padding: 8px 12px; font-family: inherit; font-size: 0.8rem; font-weight: 600; cursor: pointer; letter-spacing: 0.04em; text-transform: uppercase; display: flex; align-items: center; gap: 6px; white-space: nowrap; transition: background 0.2s; box-shadow: -2px 2px 6px rgba(0,0,0,0.15); }
+    .page-nav-toggle:hover { background: var(--bark); }
+    .page-nav-toggle .arrow { display: inline-block; transition: transform 0.25s; font-style: normal; }
+    .page-nav.open .page-nav-toggle .arrow { transform: rotate(180deg); }
+    .page-nav-list { background: var(--cream); border: 1px solid var(--tan); border-right: none; border-radius: 6px 0 0 6px; padding: 10px 0; min-width: 210px; max-height: calc(100vh - 120px); overflow-y: auto; box-shadow: -3px 3px 10px rgba(0,0,0,0.12); display: none; margin-top: 4px; }
+    .page-nav.open .page-nav-list { display: block; }
+    .page-nav-list a { display: block; padding: 7px 18px; font-family: inherit; font-size: 0.82rem; color: var(--bark); text-decoration: none; line-height: 1.35; transition: background 0.15s, color 0.15s; border-left: 3px solid transparent; }
+    .page-nav-list a:hover { background: #ede6d6; border-left-color: var(--moss); color: var(--bark); }
+    .page-nav-list .nav-category { display: block; padding: 8px 18px 3px; font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--tan); margin-top: 4px; }
+    @media (max-width: 640px) { .page-nav { top: 56px; } .page-nav-list { min-width: 180px; } }
+    /* Section separators */
+    .section + .section { border-top: 2px solid var(--wheat); padding-top: 2.5rem; margin-top: 1rem; }
+    /* Step photos */
+    .step-photos { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 1.25rem 0 0.5rem; }
+    .step-photos img { width: 135px; height: auto; border-radius: 4px; border: 1px solid var(--tan); object-fit: cover; display: block; }
+    .step-photos-label { font-size: 0.75rem; color: var(--tan); font-style: italic; margin: -0.25rem 0 1rem; letter-spacing: 0.01em; }
+  </style>
 </head>
 <body>
 
@@ -31,6 +51,19 @@
   </div>
 </nav>
 
+  <nav class="page-nav" id="pageNav" aria-label="Page sections">
+    <button class="page-nav-toggle" id="pageNavToggle" aria-expanded="false" aria-controls="pageNavList">
+      <i class="arrow">◀</i> On This Page
+    </button>
+    <div class="page-nav-list" id="pageNavList" role="list">
+          <a href="#two-paths-to-the-same-goal">Two Paths to the Same Goal</a>
+          <a href="#cedar-potting-bench-with-sink">Cedar Potting Bench with Sink</a>
+          <a href="#thrifted-piece-potting-bench">Thrifted Piece → Potting Bench</a>
+          <a href="#features-to-plan-for">Features to Plan For</a>
+          <a href="#full-references">Full References</a>
+    </div>
+  </nav>
+
 <header class="page-hero">
   <p class="eyebrow">Porch Garden</p>
   <h1>Potting Bench</h1>
@@ -44,7 +77,7 @@
   <!-- ============================================================ -->
   <div class="section">
     <p class="section-label">Overview</p>
-    <h2>Two Paths to the Same Goal</h2>
+    <h2 id="two-paths-to-the-same-goal">Two Paths to the Same Goal</h2>
 
     <p>A potting bench gives you a dedicated, standing-height workspace for transplanting, starting seeds, cleaning tools, and staging plants — no more kneeling on the ground or carrying soil-covered pots inside. These two sources cover opposite ends of the effort spectrum.</p>
 
@@ -79,7 +112,7 @@
   <!-- ============================================================ -->
   <div class="section">
     <p class="section-label">Approach 1 · Build From Scratch</p>
-    <h2>Cedar Potting Bench with Sink</h2>
+    <h2 id="cedar-potting-bench-with-sink">Cedar Potting Bench with Sink</h2>
     <p>Source: <a href="https://www.thehandymansdaughter.com/diy-potting-bench-with-sink/" target="_blank" rel="noopener" style="color:var(--forest);">The Handyman's Daughter — DIY Potting Bench with Optional Sink</a> by Vineta Jackson</p>
 
     <p>This build uses cedar (naturally rot-resistant and a great outdoor wood choice) assembled with a pocket hole jig. The sink connects to a standard garden hose — no plumbing required. The soil drop holes in the countertop are a smart detail: ⅝" holes drilled through the work surface so potting mix spills straight through into a container on the lower shelf instead of all over the floor.</p>
@@ -160,7 +193,7 @@
   <!-- ============================================================ -->
   <div class="section">
     <p class="section-label">Approach 2 · Furniture Makeover</p>
-    <h2>Thrifted Piece → Potting Bench</h2>
+    <h2 id="thrifted-piece-potting-bench">Thrifted Piece → Potting Bench</h2>
     <p>Source: <a href="https://www.attagirlsays.com/diy-potting-bench-makeover/" target="_blank" rel="noopener" style="color:var(--forest);">Atta Girl Says — DIY Potting Bench Makeover</a> by Amy (Atta Girl Amy)</p>
 
     <p>This approach starts with a yard sale changing table (about $5–15 at a good sale) and transforms it with paint, hardware swaps, and a few functional additions. No power tools needed for the core project. The result is something with a lot more personality than a plain cedar build and takes a few hours instead of a weekend.</p>
@@ -226,7 +259,7 @@
   <!-- ============================================================ -->
   <div class="section">
     <p class="section-label">Planning</p>
-    <h2>Features to Plan For</h2>
+    <h2 id="features-to-plan-for">Features to Plan For</h2>
 
     <p>Whether building from scratch or reworking a thrifted piece, think through these before you start:</p>
 
@@ -284,7 +317,7 @@
   <!-- ============================================================ -->
   <div class="section">
     <p class="section-label">Sources</p>
-    <h2>Full References</h2>
+    <h2 id="full-references">Full References</h2>
     <ul style="line-height:2.2; list-style:none; padding:0;">
       <li>🔨 <a href="https://www.thehandymansdaughter.com/diy-potting-bench-with-sink/" target="_blank" rel="noopener" style="color:var(--forest);">The Handyman's Daughter — DIY Potting Bench with Optional Sink</a> (Vineta Jackson) — full cedar build with pocket holes, sink, and soil drop holes</li>
       <li>🌿 <a href="https://www.attagirlsays.com/diy-potting-bench-makeover/" target="_blank" rel="noopener" style="color:var(--forest);">Atta Girl Says — DIY Potting Bench Makeover</a> (Amy) — furniture repurpose with paint, faucet hardware pulls, galvanized surface, and seed packet decoupage</li>
@@ -297,5 +330,19 @@
   <p>Paterstead Reference — personal project notes</p>
 </footer>
 
+  <script>
+    const nav = document.getElementById('pageNav');
+    const toggle = document.getElementById('pageNavToggle');
+    toggle.addEventListener('click', () => {
+      const isOpen = nav.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', isOpen);
+    });
+    document.querySelectorAll('.page-nav-list a').forEach(link => {
+      link.addEventListener('click', () => {
+        nav.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+  </script>
 </body>
 </html>
