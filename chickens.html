@@ -5,6 +5,144 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Chickens — Paterstead Reference</title>
   <link rel="stylesheet" href="style.css">
+  <style>
+    /* ── On This Page side nav ───────────────────────────────────── */
+    .page-nav {
+      position: fixed;
+      top: 80px;
+      right: 0;
+      z-index: 100;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+    }
+
+    .page-nav-toggle {
+      background: var(--moss);
+      color: var(--cream);
+      border: none;
+      border-radius: 6px 0 0 6px;
+      padding: 8px 12px;
+      font-family: inherit;
+      font-size: 0.8rem;
+      font-weight: 600;
+      cursor: pointer;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      white-space: nowrap;
+      transition: background 0.2s;
+      box-shadow: -2px 2px 6px rgba(0,0,0,0.15);
+    }
+
+    .page-nav-toggle:hover {
+      background: var(--bark);
+    }
+
+    .page-nav-toggle .arrow {
+      display: inline-block;
+      transition: transform 0.25s;
+      font-style: normal;
+    }
+
+    .page-nav.open .page-nav-toggle .arrow {
+      transform: rotate(180deg);
+    }
+
+    .page-nav-list {
+      background: var(--cream);
+      border: 1px solid var(--tan);
+      border-right: none;
+      border-radius: 6px 0 0 6px;
+      padding: 10px 0;
+      min-width: 210px;
+      max-height: calc(100vh - 120px);
+      overflow-y: auto;
+      box-shadow: -3px 3px 10px rgba(0,0,0,0.12);
+      display: none;
+      margin-top: 4px;
+    }
+
+    .page-nav.open .page-nav-list {
+      display: block;
+    }
+
+    .page-nav-list a {
+      display: block;
+      padding: 7px 18px;
+      font-family: inherit;
+      font-size: 0.82rem;
+      color: var(--bark);
+      text-decoration: none;
+      line-height: 1.35;
+      transition: background 0.15s, color 0.15s;
+      border-left: 3px solid transparent;
+    }
+
+    .page-nav-list a:hover {
+      background: #ede6d6;
+      border-left-color: var(--moss);
+      color: var(--bark);
+    }
+
+    .page-nav-list .nav-category {
+      display: block;
+      padding: 8px 18px 3px;
+      font-size: 0.68rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--tan);
+      margin-top: 4px;
+    }
+
+    .page-nav-list .nav-category:first-child {
+      margin-top: 0;
+    }
+
+    @media (max-width: 640px) {
+      .page-nav {
+        top: 56px;
+      }
+      .page-nav-list {
+        min-width: 180px;
+      }
+    }
+
+    /* ── Step photo grids ────────────────────────────────────────── */
+    .step-photos {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin: 1.25rem 0 0.5rem;
+    }
+
+    .step-photos img {
+      width: 135px;
+      height: auto;
+      border-radius: 4px;
+      border: 1px solid var(--tan);
+      object-fit: cover;
+      display: block;
+    }
+
+    .step-photos-label {
+      font-size: 0.75rem;
+      color: var(--tan);
+      font-style: italic;
+      margin: -0.25rem 0 1rem;
+      letter-spacing: 0.01em;
+    }
+
+    /* ── Section separators ──────────────────────────────────────── */
+    .section + .section {
+      border-top: 2px solid var(--wheat);
+      padding-top: 2.5rem;
+      margin-top: 1rem;
+    }
+  </style>
 </head>
 <body>
 
@@ -31,6 +169,27 @@
   </div>
 </nav>
 
+<!-- Collapsible "On This Page" nav -->
+<nav class="page-nav" id="pageNav" aria-label="Page sections">
+  <button class="page-nav-toggle" id="pageNavToggle" aria-expanded="false" aria-controls="pageNavList">
+    <i class="arrow">◀</i> On This Page
+  </button>
+  <div class="page-nav-list" id="pageNavList" role="list">
+    <span class="nav-category">Projects</span>
+    <a href="#pvc-feeder">DIY PVC Feeder</a>
+    <a href="#feeder-level-meter">Feeder Level Meter</a>
+    <a href="#wall-mount-feeder">Wall-Mount Feeder</a>
+    <a href="#diy-plucker">DIY Chicken Plucker</a>
+    <a href="#plastic-shed-coop">Plastic Shed Coop</a>
+    <span class="nav-category">Feed</span>
+    <a href="#fermented-feed">Fermented Feed</a>
+    <a href="#fermented-feed-tips">Fermented Feed Tips</a>
+    <a href="#fodder-notes">Fodder Notes</a>
+    <span class="nav-category">Processing</span>
+    <a href="#processing">Plucking &amp; Processing</a>
+  </div>
+</nav>
+
 <header class="page-hero">
   <p class="eyebrow">Livestock</p>
   <h1>Chickens</h1>
@@ -42,7 +201,7 @@
   <!-- ============================================================ -->
   <!--  SECTION 1: PVC FEEDER                                       -->
   <!-- ============================================================ -->
-  <div class="section">
+  <div class="section" id="pvc-feeder">
     <p class="section-label">Project</p>
     <h2>DIY PVC Chicken Feeder</h2>
     <p>Source: <a href="https://www.instructables.com/PVC-Chicken-Feeder/" target="_blank" rel="noopener" style="color:var(--forest);">Instructables — PVC Chicken Feeder</a> by mikecraghead (568k views, Featured)</p>
@@ -69,6 +228,19 @@
       <li><strong>Fill and cap.</strong> Remove the top cap and fill using a funnel. Replace the cap when done. At night, place the cap over the bottom port opening as well to keep the feed weather-proof and critter-proof.</li>
     </ol>
 
+    <div class="step-photos">
+      <img src="images/pvc-feeder-001.jpg" alt="PVC feeder build step 1">
+      <img src="images/pvc-feeder-002.jpg" alt="PVC feeder build step 2">
+      <img src="images/pvc-feeder-003.jpg" alt="PVC feeder build step 3">
+      <img src="images/pvc-feeder-004.jpg" alt="PVC feeder build step 4">
+      <img src="images/pvc-feeder-005.jpg" alt="PVC feeder build step 5">
+      <img src="images/pvc-feeder-006.jpg" alt="PVC feeder build step 6">
+      <img src="images/pvc-feeder-007.jpg" alt="PVC feeder build step 7">
+      <img src="images/pvc-feeder-008.jpg" alt="PVC feeder build step 8">
+      <img src="images/pvc-feeder-009.jpg" alt="PVC feeder build step 9">
+    </div>
+    <p class="step-photos-label">Build photos from the original Instructables guide</p>
+
     <div class="tip-box">
       <strong>The 3" Extension Is the Whole Secret</strong>
       The builder tried a 180° elbow, a plain Y with no extension, and several other configurations. The 3" piece below the Y is the only thing that solved spillage. Don't leave it out.
@@ -78,7 +250,7 @@
   <!-- ============================================================ -->
   <!--  FEEDER LEVEL METER                                          -->
   <!-- ============================================================ -->
-  <div class="section">
+  <div class="section" id="feeder-level-meter">
     <p class="section-label">Project · Add-On</p>
     <h2>PVC Feeder Level Meter</h2>
     <p>Source: <a href="https://www.instructables.com/PVC-Chicken-Feeder-with-Meter/" target="_blank" rel="noopener" style="color:var(--forest);">Instructables — PVC Chicken Feeder with Meter</a> by flodato (94k views, Featured)</p>
@@ -105,6 +277,18 @@
       <li><strong>Mark the levels.</strong> Fill the feeder completely and mark the external indicator position as "Full." Empty it halfway and mark "Half." Empty completely and mark "E." Those three marks are your gauge.</li>
     </ol>
 
+    <div class="step-photos">
+      <img src="images/feeder-meter-001.jpg" alt="Feeder level meter build step 1">
+      <img src="images/feeder-meter-002.jpg" alt="Feeder level meter build step 2">
+      <img src="images/feeder-meter-003.jpg" alt="Feeder level meter build step 3">
+      <img src="images/feeder-meter-004.jpg" alt="Feeder level meter build step 4">
+      <img src="images/feeder-meter-005.jpg" alt="Feeder level meter build step 5">
+      <img src="images/feeder-meter-006.jpg" alt="Feeder level meter build step 6">
+      <img src="images/feeder-meter-007.jpg" alt="Feeder level meter build step 7">
+      <img src="images/feeder-meter-008.jpg" alt="Feeder level meter build step 8">
+    </div>
+    <p class="step-photos-label">Build photos from the original Instructables guide</p>
+
     <div class="tip-box">
       <strong>Wire Choice Matters</strong>
       Twine frays and gets soggy. Butcher string can catch on rough wood edges and jam. Weed whacker monofilament line is the right call — stiff enough to move freely, smooth enough not to snag, and weatherproof.
@@ -114,7 +298,7 @@
   <!-- ============================================================ -->
   <!--  SECTION 2: FERMENTED FEED                                   -->
   <!-- ============================================================ -->
-  <div class="section">
+  <div class="section" id="fermented-feed">
     <p class="section-label">Feed</p>
     <h2>Fermented Chicken Feed</h2>
 
@@ -157,7 +341,7 @@
   <!-- ============================================================ -->
   <!--  SECTION 3: CHICKEN PROCESSING                               -->
   <!-- ============================================================ -->
-  <div class="section">
+  <div class="section" id="processing">
     <p class="section-label">Processing</p>
     <h2>Plucking &amp; Processing Chickens</h2>
 
@@ -198,7 +382,7 @@
   <!-- ============================================================ -->
   <!--  SECTION 4: WALL-MOUNT PVC FEEDER (Instructables variant)   -->
   <!-- ============================================================ -->
-  <div class="section">
+  <div class="section" id="wall-mount-feeder">
     <p class="section-label">Project · Variant</p>
     <h2>Wall-Mount PVC Feeder</h2>
 
@@ -229,7 +413,7 @@
   <!-- ============================================================ -->
   <!--  SECTION 5: FODDER FOR CHICKENS (Prairie Paterstead notes)   -->
   <!-- ============================================================ -->
-  <div class="section">
+  <div class="section" id="fodder-notes">
     <p class="section-label">Feed · Reference</p>
     <h2>Fodder System Notes for Chickens</h2>
 
@@ -256,7 +440,7 @@
   <!-- ============================================================ -->
   <!--  SECTION 6: FERMENTED FEED — BYC TIPS                       -->
   <!-- ============================================================ -->
-  <div class="section">
+  <div class="section" id="fermented-feed-tips">
     <p class="section-label">Feed · Additional Tips</p>
     <h2>Fermented Feed — BackYard Chickens Tips</h2>
 
@@ -284,7 +468,7 @@
   <!-- ============================================================ -->
   <!--  SECTION 7: DIY PLUCKER                                      -->
   <!-- ============================================================ -->
-  <div class="section">
+  <div class="section" id="diy-plucker">
     <p class="section-label">Processing · Equipment</p>
     <h2>DIY Chicken Plucker</h2>
 
@@ -305,6 +489,11 @@
     <p>Source: <a href="https://www.instructables.com/Make-a-Chickenduckbird-Plucker/" target="_blank" rel="noopener" style="color:var(--forest);">Instructables — Make a Chicken/Duck/Bird Plucker</a> by tytower</p>
 
     <p>A 4" drainage pipe cylinder with 24 rubber fingers, driven by a variable-speed electric drill. The whole unit mounts in a small plywood holder box clamped to a sawhorse. Cheap, compact, and handles chickens, ducks, and other birds.</p>
+
+    <div class="step-photos" style="margin-bottom:0.25rem;">
+      <img src="images/plucker-001.jpg" alt="DIY barrel plucker assembly">
+    </div>
+    <p class="step-photos-label">Completed drill-attachment barrel plucker from the Instructables build</p>
 
     <div class="materials-box">
       <h4>Materials</h4>
@@ -382,7 +571,7 @@
   <!-- ============================================================ -->
   <!--  SECTION 8: PLASTIC SHED COOP                                -->
   <!-- ============================================================ -->
-  <div class="section">
+  <div class="section" id="plastic-shed-coop">
     <p class="section-label">Housing</p>
     <h2>Plastic Shed Chicken Coop</h2>
 
@@ -453,6 +642,24 @@
 <footer>
   <p>Paterstead Reference — personal project notes</p>
 </footer>
+
+<script>
+  const nav = document.getElementById('pageNav');
+  const toggle = document.getElementById('pageNavToggle');
+
+  toggle.addEventListener('click', () => {
+    const isOpen = nav.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', isOpen);
+  });
+
+  // Close nav when a section link is clicked
+  document.querySelectorAll('.page-nav-list a').forEach(link => {
+    link.addEventListener('click', () => {
+      nav.classList.remove('open');
+      toggle.setAttribute('aria-expanded', 'false');
+    });
+  });
+</script>
 
 </body>
 </html>
